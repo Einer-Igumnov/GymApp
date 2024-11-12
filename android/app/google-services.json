@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "910705401159",
+    "project_id": "gym-app-239",
+    "storage_bucket": "gym-app-239.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910705401159:android:dd1432856c37d7f5184062",
+        "android_client_info": {
+          "package_name": "com.e"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910705401159-ru7eo2p1e2c0d9nrcfo1or3gmibjis8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXePUGztHhqNYHWmnV5vDLh0xiAJa_FxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910705401159-ru7eo2p1e2c0d9nrcfo1or3gmibjis8u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910705401159-2ltjjfi9cfldd104cnps0palrkrrsc08.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910705401159:android:b9b7718ac7be5cba184062",
+        "android_client_info": {
+          "package_name": "com.example.grehuorigehuorge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910705401159-glnre0jmlnft8028qva13bsrhs0hbd6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grehuorigehuorge",
+            "certificate_hash": "ef3cae0d4013d1cc5e03c75d4853cd294980dd87"
+          }
+        },
+        {
+          "client_id": "910705401159-ru7eo2p1e2c0d9nrcfo1or3gmibjis8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXePUGztHhqNYHWmnV5vDLh0xiAJa_FxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910705401159-ru7eo2p1e2c0d9nrcfo1or3gmibjis8u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "910705401159-2ltjjfi9cfldd104cnps0palrkrrsc08.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
