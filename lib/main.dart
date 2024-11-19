@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'school_lessons.dart';
+import 'screens/profile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      home: const WelcomePage(),
+      home: const ProfilePage(
+        uid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
+        currentUserUid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
+      ),
     );
   }
 }
