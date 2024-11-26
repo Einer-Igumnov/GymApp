@@ -3,6 +3,7 @@ import 'screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'school_lessons.dart';
 import 'screens/profile.dart';
+import 'screens/exercise.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,20 +17,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      themeMode: ThemeMode.dark,
-      debugShowCheckedModeBanner: false,
-      home: const ProfilePage(
-        uid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
-        currentUserUid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
-      ),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
+          useMaterial3: true,
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ),
+        themeMode: ThemeMode.dark,
+        debugShowCheckedModeBanner: false,
+        home: const ExercisePage(
+          exerciseId: "12345",
+          exerciseParams: {"sets": 5, "reps": 10, "weight": 50},
+          exerciseIndex: 11,
+          exerciseNum: 12,
+        ));
   }
 }
