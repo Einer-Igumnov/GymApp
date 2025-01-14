@@ -4,17 +4,11 @@ import 'package:video_player/video_player.dart';
 
 class ExercisePage extends StatefulWidget {
   const ExercisePage(
-      {super.key,
-      required this.exerciseId,
-      required this.exerciseParams,
-      required this.exerciseIndex,
-      required this.exerciseNum});
+      {super.key, required this.exerciseId, required this.exerciseParams});
 
   final String exerciseId;
   final Map<String, dynamic>
       exerciseParams; // параметры упражнения, меняющиеся в зависимости от тренировки
-  final int exerciseIndex;
-  final int exerciseNum;
 
   @override
   State<ExercisePage> createState() => _ExercisePageState();
@@ -68,52 +62,6 @@ class _ExercisePageState extends State<ExercisePage> {
               )
             : Container(),
       ),
-      const Positioned(
-        top: 50,
-        child: Text(
-          "Training",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 32),
-        ),
-      ),
-      const Positioned(
-        top: 50,
-        child: Text(
-          "Training",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 32),
-        ),
-      ),
-      Positioned(
-          top: 120,
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(children: [
-                Container(
-                  height: 7,
-                  width: MediaQuery.of(context).size.width - 120,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(children: [
-                    Container(
-                      height: 7,
-                      width: (MediaQuery.of(context).size.width - 120) *
-                          widget.exerciseIndex /
-                          widget.exerciseNum,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 234, 196, 61),
-                          borderRadius: BorderRadius.circular(20)),
-                    )
-                  ]),
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  "${widget.exerciseIndex}/${widget.exerciseNum}",
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
-                )
-              ]))),
       Positioned(
           bottom: 0,
           child: Container(
@@ -166,7 +114,7 @@ class _ExercisePageState extends State<ExercisePage> {
                               Icons.fitness_center_rounded,
                               color: Color.fromARGB(255, 234, 196, 61),
                             ),
-                            title: Text("${widget.exerciseParams["weight"]} kg",
+                            title: Text("${widget.exerciseParams["weight"]}",
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
@@ -176,7 +124,7 @@ class _ExercisePageState extends State<ExercisePage> {
                     : const Text("")
               ],
             ),
-          ))
+          )),
     ]));
   }
 }

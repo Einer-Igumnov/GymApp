@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../screens/homeScreen.dart';
 import './beautifulTap.dart';
 import '../screens/registartion.dart';
+import '../screens/profile.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({super.key});
@@ -38,7 +39,11 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(
+            builder: (context) => ProfilePage(
+                  uid: uid,
+                  currentUserUid: uid,
+                )),
       );
     }
   }
