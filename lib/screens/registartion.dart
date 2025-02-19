@@ -67,7 +67,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         Column(children: [
           const SizedBox(height: 20),
           InputContainer(
-            color: const Color.fromARGB(255, 66, 66, 67),
+            color: const Color.fromARGB(255, 38, 38, 39),
             hintText: "Select username...",
             icon: Icons.account_circle_outlined,
             textChanged: (val) {
@@ -96,7 +96,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               },
               height: MediaQuery.of(context).size.width - 120,
               width: MediaQuery.of(context).size.width - 120,
-              color: const Color.fromARGB(255, 66, 66, 67)),
+              color: const Color.fromARGB(255, 38, 38, 39)),
           const SizedBox(
             height: 10,
           ),
@@ -115,8 +115,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   if (!isUsernameValid || profilePicture == null) {
                     return;
                   }
-                  String profilePictureUrl = await uploadImage(
-                      profilePicture); // загружаю изображение в хранилище
+                  String profilePictureUrl = await uploadImage(profilePicture,
+                      "profilePictures"); // загружаю изображение в хранилище
                   print(profilePictureUrl);
 
                   await FirebaseFirestore.instance
