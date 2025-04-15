@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'school_lessons.dart';
@@ -8,6 +9,7 @@ import 'screens/trainingSlideScreen.dart';
 import 'screens/createTraining.dart';
 
 void main() async {
+  ErrorWidget.builder = (FlutterErrorDetails details) => Container();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -29,10 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      home: const ProfilePage(
-        uid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
-        currentUserUid: "yl0amM3gbkhCDZ6ygZATViaO9UB2",
-      ),
+      home: const WelcomePage(),
     );
   }
 }

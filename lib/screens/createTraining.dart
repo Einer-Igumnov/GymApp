@@ -21,8 +21,10 @@ class CreateTrainingPage extends StatefulWidget {
 
 class _CreateTrainingPageState extends State<CreateTrainingPage> {
   String trainingName = "";
-  String description = "";
   var profilePicture; // путь к файлу выбранной аватарки
+
+  int calories = 400;
+  int minutes = 30;
 
   String currSets = "", currReps = "", currWeight = "";
   String currId = "", currName = "";
@@ -39,11 +41,16 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
     currName = fbSnapshot["name"];
   }
 
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         toolbarHeight: 80,
         centerTitle: true,
         elevation: 0,
@@ -56,26 +63,27 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
       body: Stack(children: [
         ListView(children: [
           const SizedBox(height: 20),
-          InputContainer(
-            color: const Color.fromARGB(255, 38, 38, 39),
-            hintText: "Select training name...",
-            icon: Icons.abc,
-            textChanged: (val) {
-              trainingName = val;
-            },
-          ),
+          Container(
+              height: 70,
+              width: MediaQuery.of(context).size.width - 60,
+              margin: const EdgeInsets.symmetric(horizontal: 30),
+              decoration: BoxDecoration(
+                  color: mySecondaryColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(25))),
+              child: Center(
+                  child: ListTile(
+                leading: const Icon(Icons.abc),
+                title: TextField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    hintText: "Select training name...",
+                  ),
+                  onChanged: (val) {
+                    trainingName = val;
+                  },
+                ),
+              ))),
           const SizedBox(height: 20),
-          InputContainer(
-            color: const Color.fromARGB(255, 38, 38, 39),
-            hintText: "Write training description...",
-            icon: Icons.edit_rounded,
-            textChanged: (val) {
-              description = val;
-            },
-          ),
-          const SizedBox(
-            height: 40,
-          ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ImagePickerContainer(
@@ -85,7 +93,7 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
                   },
                   height: (MediaQuery.of(context).size.width - 60) * 0.5,
                   width: MediaQuery.of(context).size.width - 60,
-                  color: const Color.fromARGB(255, 38, 38, 39))),
+                  color: mySecondaryColor)),
           const SizedBox(
             height: 10,
           ),
@@ -94,6 +102,115 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 17),
           ),
+          const SizedBox(
+            height: 40,
+          ),
+          Row(children: [
+            const SizedBox(width: 30),
+            Container(
+              height: 220,
+              width: MediaQuery.of(context).size.width / 2 - 45,
+              decoration: BoxDecoration(
+                  color: mySecondaryColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(25))),
+              child: Column(children: [
+                const SizedBox(
+                  height: 40,
+                ),
+                Icon(
+                  Icons.local_fire_department_rounded,
+                  size: 80,
+                  color: Colors.yellow[700],
+                ),
+                const SizedBox(height: 20),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios_rounded,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        calories -= 10;
+                      });
+                    },
+                  ),
+                  Text(
+                    "$calories",
+                    style: const TextStyle(
+                        fontSize: 35, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        calories += 10;
+                      });
+                    },
+                  ),
+                ]),
+                const Text(
+                  "Kcal",
+                  style: TextStyle(fontSize: 15),
+                )
+              ]),
+            ),
+            const SizedBox(width: 30),
+            Container(
+              height: 220,
+              width: MediaQuery.of(context).size.width / 2 - 45,
+              decoration: BoxDecoration(
+                  color: mySecondaryColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(25))),
+              child: Column(children: [
+                const SizedBox(
+                  height: 40,
+                ),
+                Icon(
+                  Icons.alarm_rounded,
+                  size: 80,
+                  color: Colors.yellow[700],
+                ),
+                const SizedBox(height: 20),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios_rounded,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        minutes -= 10;
+                      });
+                    },
+                  ),
+                  Text(
+                    "$minutes",
+                    style: const TextStyle(
+                        fontSize: 35, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        minutes += 10;
+                      });
+                    },
+                  ),
+                ]),
+                const Text(
+                  "Minutes",
+                  style: TextStyle(fontSize: 15),
+                )
+              ]),
+            ),
+          ]),
           const SizedBox(
             height: 40,
           ),
@@ -109,7 +226,7 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
               height: 350,
               margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 38, 38, 39),
+                color: mySecondaryColor,
                 borderRadius: BorderRadius.circular(40),
               ),
               child: Stack(children: [
@@ -175,8 +292,7 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
                                               margin: const EdgeInsets.only(
                                                   left: 25, right: 25),
                                               decoration: BoxDecoration(
-                                                color: const Color.fromARGB(
-                                                    255, 48, 48, 49),
+                                                color: mySecondaryColor,
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                               ),
@@ -291,7 +407,7 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
                         margin: const EdgeInsets.only(
                             left: 20, right: 20, bottom: 25),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 38, 38, 39),
+                          color: mySecondaryColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Stack(children: [
@@ -361,14 +477,11 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
             bottom: 20,
             child: FullWidthButton(
                 text: uploadingStatus ? "Uploading..." : "Create",
-                color: uploadingStatus
-                    ? const Color.fromARGB(255, 38, 38, 39)
-                    : myMainColor,
+                color: uploadingStatus ? mySecondaryColor : myMainColor,
                 textColor: Colors.white,
                 onPressed: () async {
                   if (profilePicture == "" ||
                       trainingName == "" ||
-                      description == "" ||
                       exercises.isEmpty ||
                       uploadingStatus) {
                     return;
@@ -389,11 +502,10 @@ class _CreateTrainingPageState extends State<CreateTrainingPage> {
                       .doc(trainingId)
                       .set({
                     "name": trainingName,
-                    "description": description,
                     "wallpaper": profilePictureUrl,
                     "creator": widget.uid,
-                    "likesNum": 0,
-                    "likesAccounts": {}
+                    "calories": calories,
+                    "minutes": minutes
                   }); // загружаю данные пользователя в базу данных
 
                   for (int index = 0; index < exercises.length; index++) {

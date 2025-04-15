@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:grehuorigehuorge/constants.dart';
 import 'package:video_player/video_player.dart';
 
 class ExercisePage extends StatefulWidget {
@@ -67,9 +68,9 @@ class _ExercisePageState extends State<ExercisePage> {
           child: Container(
             height: 180,
             width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 38, 38, 39),
-                borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+                color: mySecondaryColor,
+                borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(40),
                     topLeft: Radius.circular(40))),
             child: Stack(

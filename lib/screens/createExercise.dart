@@ -41,7 +41,7 @@ class _CreateExercisePageState extends State<CreateExercisePage> {
         Column(children: [
           const SizedBox(height: 20),
           InputContainer(
-            color: const Color.fromARGB(255, 38, 38, 39),
+            color: mySecondaryColor,
             hintText: "Select exercise name...",
             icon: Icons.abc,
             textChanged: (val) {
@@ -58,7 +58,7 @@ class _CreateExercisePageState extends State<CreateExercisePage> {
               pickType: FileType.video,
               height: MediaQuery.of(context).size.width - 120,
               width: MediaQuery.of(context).size.width - 120,
-              color: const Color.fromARGB(255, 38, 38, 39)),
+              color: mySecondaryColor),
           const SizedBox(
             height: 10,
           ),
@@ -71,9 +71,7 @@ class _CreateExercisePageState extends State<CreateExercisePage> {
             bottom: 20,
             child: FullWidthButton(
                 text: uploadingStatus ? "Uploading..." : "Create",
-                color: uploadingStatus
-                    ? const Color.fromARGB(255, 38, 38, 39)
-                    : myMainColor,
+                color: uploadingStatus ? mySecondaryColor : myMainColor,
                 textColor: Colors.white,
                 onPressed: () async {
                   if (exerciseName == "" ||

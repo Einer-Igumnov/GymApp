@@ -24,8 +24,8 @@ class _InputContainerState extends State<InputContainer> {
   Widget build(BuildContext context) {
     return Container(
         height: 70,
-        width: MediaQuery.of(context).size.width - 60,
-        margin: const EdgeInsets.symmetric(horizontal: 30),
+        width: MediaQuery.of(context).size.width - 40,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
             color: widget.color,
             borderRadius: const BorderRadius.all(Radius.circular(25))),

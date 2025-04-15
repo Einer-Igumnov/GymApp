@@ -15,26 +15,27 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: Stack(
         children: [
+          Image.asset(
+            "lib/assets/images/wallpaper.jfif",
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: Colors.black.withOpacity(0.6),
+          ),
           Align(
               alignment: Alignment(0.0, -0.3),
               child: SizedBox(
-                  height: MediaQuery.of(context).size.width / 2 + 60,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        "lib/assets/images/app_logo.png",
-                        width: MediaQuery.of(context).size.width / 2,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      Text(
-                        "Welcome to GymApp",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ))),
+                height: MediaQuery.of(context).size.width * 3 / 15,
+                child: Image.asset(
+                  "lib/assets/images/grind-logo.png",
+                  width: MediaQuery.of(context).size.width * 3 / 5,
+                  fit: BoxFit.fitWidth,
+                ),
+              )),
           Positioned(bottom: 30, child: GoogleSignInButton())
         ],
       ),

@@ -40,8 +40,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ProfilePage(
-                  uid: uid,
+            builder: (context) => HomePage(
                   currentUserUid: uid,
                 )),
       );

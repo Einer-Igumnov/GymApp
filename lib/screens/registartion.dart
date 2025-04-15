@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../widgets/fullWidthButton.dart';
 import '../widgets/inputContainer.dart';
@@ -67,7 +68,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
         Column(children: [
           const SizedBox(height: 20),
           InputContainer(
-            color: const Color.fromARGB(255, 38, 38, 39),
+            color: mySecondaryColor,
             hintText: "Select username...",
             icon: Icons.account_circle_outlined,
             textChanged: (val) {
@@ -94,9 +95,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
               onImageChanged: (val) {
                 profilePicture = val;
               },
+              pickType: FileType.media,
               height: MediaQuery.of(context).size.width - 120,
               width: MediaQuery.of(context).size.width - 120,
-              color: const Color.fromARGB(255, 38, 38, 39)),
+              color: mySecondaryColor),
           const SizedBox(
             height: 10,
           ),
@@ -124,14 +126,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       .doc(widget.uid)
                       .set({
                     "username": username,
-                    "profilePicture": profilePictureUrl
+                    "profilePicture": profilePictureUrl,
+                    "exercises": [],
+                    "likedPlans": {},
+                    "plans": [],
+                    "trainings": [],
                   }); // загружаю данные пользователя в базу данных
 
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              const HomePage())); // перехожу на домашнюю страницу
+                          builder: (context) => HomePage(
+                                currentUserUid: widget.uid,
+                              ))); // перехожу на домашнюю страницу
                 })),
       ]),
     );
